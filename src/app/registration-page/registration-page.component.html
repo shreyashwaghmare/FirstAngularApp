@@ -1,0 +1,72 @@
+<div class="container ">
+
+
+<form [formGroup]="registrationForm" class="border p-3 ">
+    <div class="row g-0">
+        <div class="col text-center p-2 m-2 bg-light">
+                <span class="fs-3">Register Yourself</span>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="fname" class="form-label">Firstname:</label>
+             <input type="text" class="form-control" id="fname"  formControlName="fname">
+             <span class="text-danger" style="font-size: small;" *ngIf="registrationForm.controls['fname'].touched && registrationForm.hasError('required','fname')">*Required</span>
+        </div>
+        <div class="col">
+            <label for="lname" class="form-label">Lastname:</label>
+            <input type="text" class="form-control" id="lname" formControlName="lname">
+            <span  class="text-danger" style="font-size: small;" *ngIf="registrationForm.controls['lname'].dirty && registrationForm.hasError('required','lname') ">*Required</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m-1">
+            <label for="email" class="form-label">Email ID:</label>
+            <input type="text" class="form-control" id="email" formControlName="email">
+            <span  class="text-danger" style="font-size: small;" *ngIf="registrationForm.controls['email'].dirty && registrationForm.hasError('required','email')">*Email Required</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label  for="phoneNo" class="form-label">Phone No:</label>
+            <input type="text" class="form-control" id="phoneNo" formControlName="phoneNo">
+            <span  class="text-danger" style="font-size: small;" *ngIf="registrationForm.controls['phoneNo'].dirty && registrationForm.hasError('required','phoneNo')">*Mobile No Required</span>
+        </div>
+        <div class="col">
+            <label  for="city" class="form-label">City:</label>
+            <input type="text" class="form-control" id="city" formControlName="city">
+            
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col">
+            <label  for="password" class="form-label">Password:</label>
+            <input type="text" class="form-control" maxlength="10" id="password" formControlName="password">
+            <span class="text-danger" style="font-size: small;" *ngIf="registrationForm.controls['password'].dirty && registrationForm.hasError('required','password')">*Set Password </span>
+        </div>
+        <div class="col">
+            <label  for="confirm" class="form-label">Confirm Password:</label>
+            <input type="text" class="form-control" id="confirm" formControlName="confirm">
+            <span  class="text-danger" style="font-size: small;" *ngIf="registrationForm.controls['confirm'].dirty && registrationForm.hasError('required','confirm')">*Required</span>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col  text-center">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
+            </div>
+            
+        </div>
+
+        
+    </div>
+
+    <div class="col text-center ">
+
+        <a style="color: rgb(2, 51, 2); margin-top: 10px;" routerLink="/loginPage">Log In</a>
+         
+     </div>
+</form>
+
+</div>

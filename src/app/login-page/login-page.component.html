@@ -1,0 +1,38 @@
+
+ <form [formGroup]="loginForm" class="border border-black p-2 bg-warning" >
+    <div class="row m-2">
+        <div class="col text-center p-2 bg-opacity-10">
+            <span id="header" class="fs-3">Login-page!</span>
+        </div>
+    </div>
+    <div class="row  m-1">
+        <div class="col text-center p-2 m-2">
+            <label for="username" class="form-label">UserName:</label>
+            <input type="text" class="form-control" id="username" formControlName="username">
+            <span class="text-danger" style="font-size: small;" *ngIf="loginForm.controls['username'].touched && loginForm.hasError('required','username')">*Required</span>
+        </div>
+        
+    </div>
+    <div class="row m-1">
+        <div class="col text-center p-2 m-2">
+            <label for="password" class="form-label">Password:</label>
+            <input type="text" class="form-control" id="password" formControlName="password">
+            <span class="text-danger" style="font-size: small;" *ngIf="loginForm.controls['password'].touched && loginForm.hasError('minlength','password')">*min length 6</span>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col text-center ">
+            <div><button type="submit" class="btn btn-primary" (click)="onSubmit()" >Log In</button></div>
+
+        </div>
+        
+
+    </div>
+    <div class="col text-center ">
+
+        <a style="color: darkslateblue; margin-top: 10px;" routerLink="/registrationPage">New user? Register.</a>
+         
+     </div>
+ </form>
+ 
+ 
