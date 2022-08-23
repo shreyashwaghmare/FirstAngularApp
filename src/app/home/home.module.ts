@@ -5,6 +5,7 @@ import { ClassesComponent } from './classes/classes.component';
 import { StudentsComponent } from './students/students.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 
@@ -13,12 +14,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ClassesComponent,
     StudentsComponent,
     HomePageComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavBarComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
   ],
   providers:[],
+  bootstrap: [HomeModule]
 })
 export class HomeModule { }

@@ -10,7 +10,7 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
 const routes: Routes = [
   
   { path: 'loginPage', component: LoginPageComponent},
-   {path:'dashboard',component:DashboardComponent},
+   
   {path: 'dashboard/home',component: HomePageComponent },
     {path:'dashboard/class',component:ClassesComponent},
     {path:'dashboard/student',component:StudentsComponent},

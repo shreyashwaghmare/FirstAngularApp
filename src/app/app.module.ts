@@ -22,6 +22,7 @@ import { HomeModule } from './home/home.module';
     FormsModule,
     HomeModule,
     ReactiveFormsModule,
+    
    
   ],
   providers: [],

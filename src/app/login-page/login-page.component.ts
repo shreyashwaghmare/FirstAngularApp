@@ -35,7 +35,7 @@ export class LoginPageComponent implements OnInit {
     }
 
     
-    this.router.navigateByUrl('dashboard');
+    this.router.navigateByUrl('dashboard/dashboard/home');
 
   }
   get UserName() : FormControl{
