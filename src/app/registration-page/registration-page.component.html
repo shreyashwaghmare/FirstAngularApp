@@ -17,7 +17,7 @@
         <div class="col">
             <label for="lname" class="form-label">Lastname:</label>
             <input type="text" class="form-control" id="lname" formControlName="lname">
-            <span  class="text-danger" style="font-size: small;" *ngIf="registrationForm.controls['lname'].dirty && registrationForm.hasError('required','lname') ">*Required</span>
+            <span  class="text-danger" style="font-size: small;" *ngIf="registrationForm.controls['lname'].touched && registrationForm.hasError('required','lname') ">*Required</span>
         </div>
     </div>
     <div class="row">
