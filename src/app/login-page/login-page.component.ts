@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-   submitted = false;
+   
   constructor(private router: Router,
     private activatedRoute:ActivatedRoute) { 
     
@@ -17,9 +17,9 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+  onsubmitted:boolean=false;
   loginForm = new FormGroup({
-    username : new FormControl('',[Validators.required,Validators.maxLength(10)]),
+    username : new FormControl('',[Validators.required,Validators.minLength(10)]),
     password : new FormControl('',[Validators.required,Validators.minLength(8)],)
   });
  
@@ -27,7 +27,7 @@ export class LoginPageComponent implements OnInit {
   onSubmit(){
     console.log("log in button preseed");
     
-    this.submitted = true;
+    this.onsubmitted = true;
 
     
     if (this.loginForm.invalid) {

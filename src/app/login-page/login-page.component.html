@@ -1,5 +1,5 @@
 
- <form [formGroup]="loginForm" class="border border-black p-2 bg-warning" >
+ <form [formGroup]="loginForm" class="border border-black p-2 bg-warning" novalidate>
     <div class="row m-2">
         <div class="col text-center p-2 bg-opacity-10">
             <span id="header" class="fs-3">Login-page!</span>
@@ -9,15 +9,19 @@
         <div class="col text-center p-2 m-2">
             <label for="username" class="form-label">UserName:</label>
             <input type="text" class="form-control" id="username" formControlName="username">
-            <span class="text-danger" style="font-size: small;" *ngIf="loginForm.controls['username'].touched && loginForm.hasError('required','username')">*Required</span>
+            <span class="text-danger" style="font-size: small;" *ngIf="onsubmitted && loginForm.controls['username'].hasError('required') ">*confirm Password</span>
+             <span class="text-danger" style="font-size: small;" *ngIf="  (loginForm.controls['username'].dirty  && loginForm.controls['username'].invalid)">*minlength required 10</span>
+            
         </div>
         
     </div>
     <div class="row m-1">
         <div class="col text-center p-2 m-2">
             <label for="password" class="form-label">Password:</label>
-            <input type="text" class="form-control" id="password" formControlName="password">
-            <span class="text-danger" style="font-size: small;" *ngIf="loginForm.controls['password'].touched && loginForm.hasError('minlength','password')">*min length 6</span>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            <span class="text-danger" style="font-size: small;" *ngIf="onsubmitted && loginForm.controls['password'].hasError('required') ">*Password Required</span>
+             <span class="text-danger" style="font-size: small;" *ngIf="  (loginForm.controls['password'].dirty  && loginForm.controls['password'].invalid)">*minlength required 8</span>
+            
         </div>
     </div>
     <div class="row m-2">

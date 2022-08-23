@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup ,Validators} from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
@@ -8,18 +9,20 @@ import { FormControl, FormGroup ,Validators} from '@angular/forms';
 })
 export class RegistrationPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+    private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
   }
+  onsubmitted:boolean=false;
   registrationForm = new FormGroup({
-  fname : new FormControl("",[Validators.required,Validators.minLength(10)]),
-   lname : new FormControl('',[Validators.required,Validators.minLength(10)]),
-   email : new FormControl('',[Validators.required,Validators.pattern("[^ @]*@[^ @]*")]),
-   phoneNo : new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
-   city : new FormControl(''),
-   password : new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-   confirm : new FormControl('',Validators.required),
+   fname : new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern("^[a-zA-Z]+$")]),
+   lname : new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern("^[a-zA-Z]+$")]),
+   email : new FormControl('',[Validators.required,Validators.email]),
+   phoneNo : new FormControl('',[Validators.required,Validators.minLength(10),Validators.minLength(10),Validators.maxLength(10)]),
+   city : new FormControl('',Validators.required),
+   password : new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(8)]),
+   confirm : new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(8)]),
 
   });
 
@@ -44,9 +47,15 @@ get LastName() : FormControl {
             return this.registrationForm.get("confirm") as FormControl;}
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    this.registrationForm.reset;
-    alert("Registered Successfulyy.");
-    console.log(this.registrationForm.value);
+    
+    
+    this.onsubmitted=true;
+    if(this.registrationForm.valid){
+      
+      this.router.navigateByUrl("/loginPage")
+      console.log(this.registrationForm.value);
+    }
+   
   }
   
   
