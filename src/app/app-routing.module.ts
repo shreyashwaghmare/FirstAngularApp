@@ -6,16 +6,15 @@ import { HomePageComponent } from './home/home-page/home-page.component';
 import { ClassesComponent } from './home/classes/classes.component';
 import { StudentsComponent } from './home/students/students.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
+
 
 const routes: Routes = [
   
   { path: 'loginPage', component: LoginPageComponent},
-   
-  {path: 'dashboard/home',component: HomePageComponent },
-    {path:'dashboard/class',component:ClassesComponent},
-    {path:'dashboard/student',component:StudentsComponent},
    {path: '',redirectTo:'loginPage',pathMatch:'full'},
    { path: 'registrationPage', component: RegistrationPageComponent},
+   {   path: 'dashboard',canActivate: [AuthGuard],   component: DashboardComponent},
 
 ];
 
